@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <!-- Configurações do site -->
+  <title>Sitio do Astronauta</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  <script src="js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <style>
+  body {
+/*       font-family: 'Mali', cursive; */
+      font: 400 15px 'Cabin Sketch', cursive;
+      line-height: 1.8;
+      color: #f2f3d2;
+      background-image: url(/img/fundocor.png);
+      background-size: cover;
+      background-repeat: no-repeat; 
+  }
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      color: #e7e6ef;
+      font-weight: 600;
+      margin-bottom: 30px;
+      text-align: center;
+      font-family: 'Cabin Sketch', cursive;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #f2f3d2;
+      font-weight: 400;
+      margin-bottom: 30px;
+      font-family: 'Cabin Sketch', cursive;
+
+
+  }  
+  a{
+    color: #eb9e46 ;
+  }
+  a:hover{
+    color: #eef3be ;
+  }
+    /* mudar cor de onde tá o nome grande */
+  .jumbotron {
+       background-color: #0d6770;
+      color: #b2d4c7;
+      padding: 50px 50px;
+      font-family: 'Cabin Sketch', cursive;
+      margin:0;
+  }
+  .panel-foto{
+    padding: 150px 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 250px;
+    margin-left: 250px;
+  }
+  .container-fluid {
+      padding: 60px 50px;
+  }
+  .bg-grey {
+   
+      background-color: #c3cddd;
+  }
+  .bg-contraste {
+      background-color: #53777a;
+  }
+  .bg-foto{
+    background: transparent;
+
+  }
+  .logo-small {
+      color: #0f0b41;
+      font-size: 50px;
+  }
+  .logo {
+      color: #0f0b41;
+      font-size: 200px;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+      background-image: none;
+      color: #0d6770;
+  }
+  .carousel-indicators li {
+      border-color: #0d6770;
+  }
+  .carousel-indicators li.active {
+      background-color: #0d6770;
+  }
+  .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+  }
+  .item span {
+      font-style: normal;
+  }
+  .panel {
+      border: 1px solid #0d6770; 
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+      border: 1px solid #0d6770;
+      background-color: #fff !important;
+      color: #0d6770;
+  }
+  .panel-heading {
+      color: #fff !important;
+      background-color: #0d6770 !important;
+      padding: 25px;
+      border-bottom: 1px solid transparent;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .panel-banner{
+    margin-top: 70px;
+    
+  }
+  .panel-footer {
+      background-color: white !important;
+  }
+  .panel-footer h3 {
+      font-size: 32px;
+  }
+  .panel-footer h4 {
+      color: #aaa;
+      font-size: 14px;
+  }
+  .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #0d6770;
+      color: #fff;
+  }
+
+     /* configurações do primeiro painel la em cima (header) */ 
+  .navbar {
+      margin-bottom: 0;
+       background-color: #eb9e46;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: 'Cabin Sketch', cursive;
+  }
+
+  /* cor da fonte no header */
+  .navbar li a, .navbar .navbar-brand {
+      color: #170551 !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #0d6770 !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #0f0b41;
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+  @font-face {
+    font-family: 'BebasNeueRegular';
+    src: url('fonts/BebasNeueRegular.eot');
+    src: url('fonts/BebasNeueRegular.eot') format('embedded-opentype'),
+         url('fonts/BebasNeueRegular.woff2') format('woff2'),
+         url('fonts/BebasNeueRegular.woff') format('woff'),
+         url('fonts/BebasNeueRegular.ttf') format('truetype'),
+         url('fonts/BebasNeueRegular.svg#BebasNeueRegular') format('svg');
+    
+}
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+  <!-- barra de navegação -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage"><span><img class="img-responsive" src="/img/logoazul.png" style="width:auto;height:30px;"> </span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+          <li><a href="#about">QUEM SOMOS</a></li>
+          <li><a href="#services">OFICINAS</a></li>
+          <li><a href="#portfolio">42</a></li>
+          <li><a href="#contact">CONTATO</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index-en.html"><span class="glyphicon glyphicon-log-in"></span>EN</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+    <div class="item active">
+      <img src="/img/fazeraprender.jpg" alt="carapintada">
+    </div>
+
+    <div class="item">
+      <img src="/img/maos.JPG" alt="pupa">
+    </div>
+
+    <div class="item">
+      <img src="/img/fazeraprender2.jpg" alt="fazer">
+    </div>
+  </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Container (quem somos) -->
+<div id="about" class="container-fluid ">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>QUEM SOMOS</h2><br>
+      <h4> O Sitio do Astronauta é um coletivo de estudo e desenvolvimento de tecnologias anti.disciplinares que impulsiona 
+        experiências de aprendizagem, expressão artística e transistência cotidiana. Acreditando que todo conhecimento deve 
+        ser compartilhado, estimula sempre a ampliação de ferramentas para criação. </h4><br>
+      
+    </div>
+
+      <div class="row">
+      
+        <div class="col-sm-3">
+        <a href="https://twitter.com/hiure" target="_blank" title="ju">
+             <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+              <img class="manImg" src="/img/hiure.png" style="width:150px;height:150px"/>
+               </span>
+               <h4>Hiure Queiroz</h4>
+            </a>
+        </div>
+          
+          <div class="col-sm-3 bg-foto">
+          <a href="https://instagram.com/guerradimarcela" target="_blank" title="ju">
+                <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+                <img class="manImg" src="/img/marcela.png" style="width:150px;height:150px"/>
+                </span>
+                <h4>Marcela Guerra</h4>
+                </a>
+          </div>
+
+          <div class="col-sm-3 bg-foto">
+                <a href="https://instagram.com/cezarrenzi" target="_blank" title="ju">
+                <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+                <img class="manImg" src="/img/cezopreto.png" style="width:150px;height:150px"/>
+                </span>
+                <h4>Cezar Renzi</h4>
+                </a>
+            </div>
+
+          <div class="col-sm-3 bg-foto">
+                <a href="https://instagram.com/ju_fiebig" target="_blank" title="ju">
+                <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+                <img class="manImg" src="/img/jupreta.png" style="width:150px;height:150px"/>
+                </span>
+                <h4>Juliana Fiebig</h4>
+                </a>
+          </div>
+
+        </div>
+  </div>
+</div>
+
+<!-- Container texto sobre fazer para aprender -->
+<div id="libremesh" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Fazer Para Aprender</h2>
+      <h4>Propomos atelies abertos que estimulam o desvio das caixas pretas através da construção de geringonças. 
+        É no processo de criação, manejando diferentes técnicas e cacarecos que somos capazes de interiorizar as formas e 
+        funcionamento de objetos, ressignificando e inventando através deles, até que eles possam ser revelados em diferentes 
+        funções. No ateliê usamos materiais cotidianos, como cartolina, garrafas, motores, leds , buzinas , fitas , palitos, retalhos, 
+        para estimular o saber fazer que se estende para além do momento da atividade e se torna parte da conduta de um fazedor.</h4>
+     
+    
+   
+    </div>
+        <div class="col-sm-4 panel-banner">
+         
+         <img src="/img/quemsomos.jpg" class="img-rounded" alt="mesh" width="304" height="236">
+
+        <!-- <span class="glyphicon glyphicon-cloud logo"></span> -->
+        </div>
+  </div>
+
+
+</div>
+
+<!-- Container (Oficinas) -->
+<div id="services" class="container-fluid text-center bg-contraste">
+  <h2>OFICINAS</h2><br>
+
+  <div class="row slideanim">
+    <div class="col-sm-4">
+        <a href="cardapio1.html" target="_blank" title="boneca">
+        <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+        <img class="manImg" src="/img/oficina-boneca.png" style="width:150px;height:200px"/>
+        </span>
+        <h4>Boneca Tagarela</h4>
+      <p>A Boneca de Pano que fala</p>
+      </a>
+    </div>
+
+
+      
+    <div class="col-sm-4">
+        <a href="cardapio2.html" target="_blank" title="casasolar">
+         <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+        <img class="manImg" src="/img/casa.png" style="width:150px;height:200px"/>
+        </span>
+
+      <h4>Vila de Papelão Fotovoltaica</h4>
+      <p>Criando casinhas de papelão com placa solar fotovoltaica</p>
+      </a>
+    </div>
+    <div class="col-sm-4">
+        <a href="cardapio3.html" target="_blank" title="microscopio">
+        <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+        <img class="manImg" src="/img/microscopio.png" style="width:150px;height:200px"/>
+        </span>
+
+      <h4>Microscopio Caseiro</h4>
+      <p>Criando um Microscopio caseiro a partir de uma webcam</p>
+      </a>
+    </div>
+  </div>
+  <br><br>
+  
+  <div class="row slideanim">
+    <div class="col-sm-4">
+        <a href="cardapio4.html" target="_blank" title="baterias">
+        <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+        <img class="manImg" src="/img/bateria.png" style="width:150px;height:200px"/>
+        </span>
+
+
+      <h4>Baterias Naturais</h4>
+      <p>Nessa atividade criamos uma bateria com limões para ligar um relógio</p>
+    </div>
+      </a>
+    <div class="col-sm-4">
+        <a href="cardapio5.html" target="_blank" title="amuletos3d">
+        <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+        <img class="manImg" src="/img/roda.png" style="width:150px;height:200px"/>
+        </span>
+
+      <h4>Amuletos 3D</h4>
+      <p>Através da capacitância de cada participante um algoritimo vai selecionar um simbolo, impresso em 3D se torna um pátua.</p>
+    </a>
+    </div>
+      
+      <div class="col-sm-4">
+      <a href="cardapio6.html" target="_blank" title="mais">
+      <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+      <img class="manImg" src="/img/maisemais.png" style="width:150px;height:200px"/>
+      </span>
+
+      <h4>E muito mais</h4>
+      <p>O Sitio do Astronauta tem mais um monte de oficinas, veja nosso cardápio completo!!</p>
+      </a>
+      </div>
+  </div>
+</div>
+
+<!-- Container (42) -->
+<div id="portfolio" class="container-fluid text-center">
+  <h2 style="font-family:BebasNeueRegular;">O Universo a Vida e tudo Mais</h2><br>
+  <h4 style="font-family:BebasNeueRegular;letter-spacing:3px;">A gente faz um montão de coisa além, confira:</h4>
+  <div class="row text-center slideanim">
+    <div class="col-sm-3">
+      <div class="thumbnail bg-foto">
+        <img src="/img/pp2.jpeg" alt="pp" width="400" height="300">
+        <p style="font-family:BebasNeueRegular;letter-spacing:3px;"><strong>Plástico Maravilha</strong></p>
+        <p style="font-family:BebasNeueRegular;letter-spacing:3px;"><a href="http://plasticomaravilha.com.br" target=“_blank” class="alert-link">Saiba Mais</p></a>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail bg-foto">
+        <img src="/img/makerseduca.JPG" alt="makers" width="400" height="300">
+        <p style="font-family:BebasNeueRegular;letter-spacing:3px;"><strong>Aprendizagem Criativa</strong></p>
+        <p style="font-family:BebasNeueRegular;letter-spacing:3px;"><a href="http://aprendizagemcriativa.org/" target=“_blank” class="alert-link">Saiba Mais</p></a>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail bg-foto">
+        <img src="/img/espacodofazer.jpg" alt="espacodofazer" width="400" height="300">
+        <p style="font-family:BebasNeueRegular;letter-spacing:3px;"><strong>Espaço do Fazer - Pandavas</strong></p>
+        <p style="font-family:BebasNeueRegular;letter-spacing:3px;"><a href="https://www.institutopandavas.org.br/espaco-do-fazer/" target=“_blank” class="alert-link">Saiba Mais</p></a>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="thumbnail bg-foto">
+        <img src="/img/tecnomistico.jpeg" alt="tecnomistico" width="400" height="300">
+        <p style="font-family:BebasNeueRegular;letter-spacing:3px;"><strong>Cabinte Tecnomistica</strong></p>
+        <p style="font-family:BebasNeueRegular;letter-spacing:3px;"><a href="https://www.cabinetecnomistica.com.br/" target=“_blank” class="alert-link">Saiba Mais</p></a>
+      </div>
+    </div>
+  </div><br>
+  
+  
+
+
+<!-- Container (Contato) -->
+</div>
+<div id="contact" class="container-fluid bg-contraste">
+  <h2 class="text-center">CONTATO</h2>
+  <div class="row">
+
+  <div  class="col-sm-3">
+  <a href="https://facebook.com/sitiodoastronauta" target="_blank" title="facebook">
+        <p><i class="fab fa-facebook"></i></span>/SitioDoAstronauta</p>
+      </a>
+      <a href="https://instagram.com/sitiodoastronauta" target="_blank" title="instagram">
+        <p><i class="fab fa-instagram"></i></span>/SitioDoAstronauta</p>
+      </a>
+      <a href="https://flickr.com/sitiodoastronauta" target="_blank" title="flickr">
+        <p><i class="fab fa-flickr"></i></span>/SitioDoAstronauta</p>
+      </a>
+  </div>
+
+
+    <div class="col-sm-3">
+      <p>Entre em contato.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Monteiro Lobato, SP</p>
+      <p><span class="glyphicon glyphicon-phone"></span> 15 996617952</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> sitiodoastronauta@gmail.com</p>
+     </div>
+    
+    <div class="col-sm-6 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
